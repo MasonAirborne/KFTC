@@ -1,446 +1,221 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Knoxville Flight Training Academy | Knoxville, TN</title>
-  <meta name="description" content="Knoxville Flight Training Academy in Knoxville, TN. Discovery flights, private pilot, instrument, commercial, and more. Book a flight today." />
-  <style>
-    :root{
-      --bg:#0b1220;
-      --card:#0f1a33;
-      --muted:#9fb0d0;
-      --text:#e8eeff;
-      --accent:#6aa6ff;
-      --accent2:#7cf7c2;
-      --border:rgba(255,255,255,.10);
-      --shadow: 0 20px 60px rgba(0,0,0,.35);
-      --radius:18px;
-      --max:1100px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 700px at 20% -10%, rgba(106,166,255,.25), transparent 60%),
-                  radial-gradient(900px 600px at 90% 0%, rgba(124,247,194,.18), transparent 55%),
-                  var(--bg);
-      color:var(--text);
-      line-height:1.5;
-    }
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:22px}
-    .nav{
-      position:sticky; top:0; z-index:10;
-      backdrop-filter: blur(10px);
-      background: rgba(11,18,32,.55);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:14px;
-      max-width:var(--max); margin:0 auto; padding:14px 22px;
-    }
-    .brand{display:flex; align-items:center; gap:12px}
-    .logo{
-      width:44px; height:44px; border-radius:12px;
-      background: rgba(255,255,255,.06);
-      border:1px solid var(--border);
-      display:grid; place-items:center;
-      overflow:hidden;
-    }
-    .logo img{width:100%; height:100%; object-fit:contain; padding:6px}
-    .brand h1{font-size:14px; margin:0; letter-spacing:.2px}
-    .brand p{margin:0; font-size:12px; color:var(--muted)}
-    .links{display:flex; gap:16px; flex-wrap:wrap; justify-content:flex-end}
-    .links a{font-size:13px; color:var(--muted)}
-    .links a:hover{color:var(--text)}
-    .cta{display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end}
-    .btn{
-      padding:10px 14px; border-radius:999px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.06);
-      color:var(--text);
-      font-size:13px;
-      display:inline-flex; align-items:center; gap:8px;
-      box-shadow: none;
-    }
-    .btn.primary{
-      background: linear-gradient(135deg, rgba(106,166,255,.95), rgba(124,247,194,.85));
-      border: none;
-      color:#071225;
-      font-weight:700;
-    }
-    .btn:hover{transform: translateY(-1px)}
-    .hero{
-      padding:54px 0 16px;
-    }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap:22px;
-      align-items:stretch;
-    }
-    .headline{
-      font-size:44px; line-height:1.05; margin:0 0 14px;
-      letter-spacing:-.8px;
-    }
-    .sub{
-      margin:0 0 18px;
-      color:var(--muted);
-      font-size:16px;
-      max-width:60ch;
-    }
-    .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin:18px 0 10px}
-    .chips{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
-    .chip{
-      padding:8px 10px; border-radius:999px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.05);
-      color:var(--muted);
-      font-size:12px;
-    }
-    .card{
-      background: rgba(15,26,51,.72);
-      border:1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .card.pad{padding:18px}
-    .stat{
-      display:grid; gap:10px;
-      height:100%;
-    }
-    .stat h3{margin:0; font-size:14px; color:var(--muted); font-weight:600}
-    .stat .big{font-size:26px; font-weight:800; margin:0}
-    .stat .small{margin:0; color:var(--muted); font-size:13px}
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap:16px;
-      margin:22px 0;
-    }
-    .col-6{grid-column: span 6}
-    .col-4{grid-column: span 4}
-    .col-12{grid-column: span 12}
-    .section{margin:34px 0 22px}
-    .section h2{margin:0 0 10px; font-size:22px}
-    .section p.lead{margin:0; color:var(--muted); max-width:72ch}
-    .tile{
-      padding:16px;
-      border-radius: var(--radius);
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.04);
-      height:100%;
-    }
-    .tile h3{margin:0 0 8px; font-size:16px}
-    .tile p{margin:0; color:var(--muted); font-size:13px}
-    .pill{
-      display:inline-flex; padding:6px 10px; border-radius:999px;
-      border:1px solid var(--border);
-      color:var(--muted); font-size:12px; margin-top:10px;
-    }
-    .pricing{
-      display:flex; flex-direction:column; gap:10px;
-    }
-    .pricing strong{font-size:16px}
-    .hr{height:1px; background:var(--border); margin:12px 0}
-    details{
-      border:1px solid var(--border);
-      border-radius: 14px;
-      background: rgba(255,255,255,.04);
-      padding:12px 14px;
-    }
-    summary{cursor:pointer; font-weight:700}
-    details p{margin:10px 0 0; color:var(--muted); font-size:13px}
-    footer{
-      border-top:1px solid var(--border);
-      margin-top:40px;
-      padding:22px 0 40px;
-      color:var(--muted);
-      font-size:13px;
-    }
-    .two-col{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:16px;
-    }
-    .contact a{color:var(--text)}
-    .note{font-size:12px; color:var(--muted)}
-    @media (max-width: 920px){
-      .hero-grid{grid-template-columns:1fr}
-      .headline{font-size:36px}
-      .two-col{grid-template-columns:1fr}
-      .col-6,.col-4{grid-column: span 12}
-      .links{display:none}
-    }
-  </style>
+<title>Knoxville Flight Training Academy</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:'Open Sans', sans-serif;
+background:#F5F6F8;
+}
+
+h1,h2,h3{
+font-family:'Montserrat', sans-serif;
+}
+
+.navbar{
+background:#1E5B39;
+padding:15px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.nav-links a{
+color:white;
+margin:0 15px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.discovery-btn{
+background:#F4A24E;
+padding:10px 16px;
+border-radius:6px;
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+.hero{
+background:linear-gradient(135deg,#2F4A8A,#4C78C8);
+color:white;
+padding:80px 20px;
+text-align:center;
+}
+
+.section{
+padding:60px 20px;
+max-width:1100px;
+margin:auto;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.footer{
+background:#1E5B39;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+</style>
 </head>
 
 <body>
-  <!-- NAV -->
-  <div class="nav">
-    <div class="nav-inner">
-      <div class="brand">
-        <div class="logo">
-          <!-- Replace /assets/logo.png with your uploaded logo path -->
-          <img src="assets/logo.png" alt="Knoxville Flight Training Academy logo" onerror="this.style.display='none'; this.parentElement.textContent='✈️';" />
-        </div>
-        <div>
-          <h1>Knoxville Flight Training Academy</h1>
-          <p>Knoxville, Tennessee</p>
-        </div>
-      </div>
 
-      <div class="links">
-        <a href="#programs">Programs</a>
-        <a href="#discovery">Discovery Flights</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#team">Meet the Team</a>
-        <a href="#contact">Contact</a>
-      </div>
+<!-- NAVBAR -->
 
-      <div class="cta">
-        <!-- Replace phone/email -->
-        <a class="btn" href="tel:+18655551234">Call</a>
-        <a class="btn" href="mailto:info@knoxflights.com">Email</a>
-        <!-- Replace with your booking link (Calendly, Acuity, etc.) -->
-        <a class="btn primary" href="#contact">Book a Discovery Flight</a>
-      </div>
-    </div>
-  </div>
+<div class="navbar">
 
-  <main class="wrap">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-grid">
-        <div>
-          <h2 class="headline">Modern flight training that gets you in the air—fast.</h2>
-          <p class="sub">
-            Train in Knoxville with instructors who care about safety, confidence, and clear progress.
-            Start with a Discovery Flight, then choose your path: Private, Instrument, Commercial, and beyond.
-          </p>
+<div style="display:flex;align-items:center;gap:10px;">
 
-          <div class="hero-actions">
-            <a class="btn primary" href="#discovery">Start with a Discovery Flight</a>
-            <a class="btn" href="#programs">Explore Training Programs</a>
-          </div>
+<img src="logo.png" height="45">
 
-          <div class="chips">
-            <span class="chip">✔ Flexible scheduling</span>
-            <span class="chip">✔ Step-by-step syllabus</span>
-            <span class="chip">✔ Local Knoxville community</span>
-            <span class="chip">✔ Safety-first culture</span>
-          </div>
-        </div>
+<b style="color:white;">Knoxville Flight Training Academy</b>
 
-        <div class="card pad stat">
-          <h3>Quick Start</h3>
-          <p class="big">Discovery Flight</p>
-          <p class="small">Perfect first lesson: meet your instructor, preflight, take the controls, and fly.</p>
-          <div class="hr"></div>
-          <p class="small"><strong>What you’ll do:</strong> safety brief, cockpit tour, flight time, photos after.</p>
-          <p class="small note">Tip: add your actual price + duration here once you confirm it.</p>
-        </div>
-      </div>
-    </section>
+</div>
 
-    <!-- PROGRAMS -->
-    <section id="programs" class="section">
-      <h2>Training Programs</h2>
-      <p class="lead">Clear paths for hobby flyers and future professionals. We’ll help you choose the right track.</p>
+<div class="nav-links">
 
-      <div class="grid">
-        <div class="col-4">
-          <div class="tile">
-            <h3>Private Pilot License (PPL)</h3>
-            <p>Learn fundamentals, solo, cross-countries, and become a confident pilot.</p>
-            <span class="pill">Best first step</span>
-          </div>
-        </div>
-        <div class="col-4">
-          <div class="tile">
-            <h3>Instrument Rating (IFR)</h3>
-            <p>Fly in the system, build precision, and expand your weather capability.</p>
-            <span class="pill">Level up safety</span>
-          </div>
-        </div>
-        <div class="col-4">
-          <div class="tile">
-            <h3>Commercial Pilot</h3>
-            <p>Refine performance and professionalism as you build toward paid flying.</p>
-            <span class="pill">Career pathway</span>
-          </div>
-        </div>
+<a href="#">Home</a>
+<a href="#">Discovery Flight</a>
+<a href="#">Flight Training</a>
+<a href="#">Pricing</a>
+<a href="#">Meet the Team</a>
+<a href="#">Start Here</a>
+<a href="#">Visit Us</a>
 
-        <div class="col-6">
-          <div class="tile">
-            <h3>Flight Reviews & Currency</h3>
-            <p>Stay current, stay safe—structured refresh plans based on your goals.</p>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="tile">
-            <h3>Ground School & Test Prep</h3>
-            <p>Simple explanations, strong habits, and a plan to pass your written and oral.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<a class="discovery-btn" href="#">Book Discovery Flight</a>
 
-    <!-- DISCOVERY -->
-    <section id="discovery" class="section">
-      <h2>Discovery Flights</h2>
-      <p class="lead">Your first flight lesson. Bring a friend to take photos and celebrate the start of something big.</p>
+</div>
 
-      <div class="two-col">
-        <div class="card pad">
-          <h3 style="margin:0 0 8px;">What’s included</h3>
-          <ul style="margin:0; padding-left:18px; color:var(--muted); font-size:13px;">
-            <li>Preflight walkthrough + safety brief</li>
-            <li>Flight time with an instructor</li>
-            <li>Hands-on flying (you take the controls)</li>
-            <li>Post-flight recap + next steps</li>
-          </ul>
-        </div>
-        <div class="card pad">
-          <h3 style="margin:0 0 8px;">How to book</h3>
-          <p style="margin:0; color:var(--muted); font-size:13px;">
-            Use the button below, or call/email us and we’ll schedule around your availability.
-          </p>
-          <div class="hero-actions" style="margin-top:12px;">
-            <a class="btn primary" href="#contact">Book Now</a>
-            <a class="btn" href="tel:+18655551234">Call</a>
-          </div>
-        </div>
-      </div>
-    </section>
+</div>
 
-    <!-- PRICING -->
-    <section id="pricing" class="section">
-      <h2>Pricing</h2>
-      <p class="lead">Keep pricing simple. Start with “starting at” ranges so you’re not boxed in.</p>
+<!-- HERO -->
 
-      <div class="grid">
-        <div class="col-6">
-          <div class="tile pricing">
-            <strong>Discovery Flight</strong>
-            <span style="color:var(--muted); font-size:13px;">Starting at: $___ • __ minutes</span>
-            <div class="hr"></div>
-            <span style="color:var(--muted); font-size:13px;">Includes instructor + aircraft + flight time.</span>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="tile pricing">
-            <strong>Training</strong>
-            <span style="color:var(--muted); font-size:13px;">Aircraft: $___/hr • Instructor: $___/hr</span>
-            <div class="hr"></div>
-            <span style="color:var(--muted); font-size:13px;">Ask about packages + financing options (if offered).</span>
-          </div>
-        </div>
-      </div>
+<div class="hero">
 
-      <p class="note">If you want, we can add a “Cost to Become a Pilot” calculator section later.</p>
-    </section>
+<h1>Learn to Fly in Knoxville Tennessee</h1>
 
-    <!-- TEAM -->
-    <section id="team" class="section">
-      <h2>Meet the Team</h2>
-      <p class="lead">Add 3–6 instructor cards with a photo, certifications, and a friendly one-liner.</p>
+<p>Start your aviation journey with Knoxville Flight Training Academy.</p>
 
-      <div class="grid">
-        <div class="col-4">
-          <div class="tile">
-            <h3>Instructor Name</h3>
-            <p>CFI / CFII • “What I love about teaching…”</p>
-          </div>
-        </div>
-        <div class="col-4">
-          <div class="tile">
-            <h3>Instructor Name</h3>
-            <p>CFI • Specialty: beginners / checkride prep / IFR</p>
-          </div>
-        </div>
-        <div class="col-4">
-          <div class="tile">
-            <h3>Instructor Name</h3>
-            <p>CFI / MEI • Career-focused training support</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<br>
 
-    <!-- FAQ -->
-    <section class="section">
-      <h2>FAQ</h2>
-      <p class="lead">Answer the questions that stop people from booking.</p>
+<a class="discovery-btn">Book a Discovery Flight</a>
 
-      <div class="grid">
-        <div class="col-12">
-          <details>
-            <summary>Do I need any experience to do a Discovery Flight?</summary>
-            <p>No. It’s designed for first-timers. We’ll walk you through everything step by step.</p>
-          </details>
-        </div>
-        <div class="col-12">
-          <details>
-            <summary>How long does it take to get a Private Pilot License?</summary>
-            <p>It depends on your schedule and consistency. Most students progress faster with regular weekly lessons.</p>
-          </details>
-        </div>
-        <div class="col-12">
-          <details>
-            <summary>What should I bring?</summary>
-            <p>ID, sunglasses, closed-toe shoes, and a great attitude. We’ll handle the rest.</p>
-          </details>
-        </div>
-      </div>
-    </section>
+</div>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <h2>Contact & Booking</h2>
-      <p class="lead">Make it ridiculously easy to take the next step.</p>
+<!-- DISCOVERY FLIGHT -->
 
-      <div class="two-col">
-        <div class="card pad contact">
-          <p style="margin:0 0 8px;"><strong>Knoxville Flight Training Academy</strong></p>
-          <p style="margin:0; color:var(--muted); font-size:13px;">
-            Knoxville, TN<br/>
-            Phone: <a href="tel:+18655551234">(865) 555-1234</a><br/>
-            Email: <a href="mailto:info@knoxflights.com">info@knoxflights.com</a>
-          </p>
-          <div class="hero-actions" style="margin-top:12px;">
-            <!-- Replace with your booking system link -->
-            <a class="btn primary" href="#">Book Online</a>
-            <a class="btn" href="mailto:info@knoxflights.com">Send Email</a>
-          </div>
-          <p class="note" style="margin-top:10px;">Add your airport, address, and Google Map embed later.</p>
-        </div>
+<div class="section">
 
-        <div class="card pad">
-          <h3 style="margin:0 0 8px;">Request info</h3>
-          <p style="margin:0 0 12px; color:var(--muted); font-size:13px;">
-            Use a simple form tool (Google Forms / Jotform) so messages never get lost.
-          </p>
-          <a class="btn primary" href="#">Open Request Form</a>
-          <p class="note" style="margin-top:10px;">Once you share your preferred form link, I’ll wire it in.</p>
-        </div>
-      </div>
-    </section>
+<h2>Discovery Flight</h2>
 
-    <footer>
-      <div class="wrap" style="padding:0;">
-        <div style="display:flex; gap:10px; justify-content:space-between; flex-wrap:wrap;">
-          <span>© <span id="y"></span> Knoxville Flight Training Academy</span>
-          <span class="note">Built on GitHub Pages • Fast, simple, modern</span>
-        </div>
-      </div>
-    </footer>
-  </main>
+<p>Ever wondered what it's like to fly an airplane? Our discovery flight lets you take the controls with a certified flight instructor and experience Knoxville from the sky.</p>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
+</div>
+
+<!-- TRAINING -->
+
+<div class="section">
+
+<h2>Flight Training Programs</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Private Pilot License</h3>
+
+<p>Learn the fundamentals of flight and become a certified pilot.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Instrument Rating</h3>
+
+<p>Expand your skills and fly safely in instrument conditions.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Commercial Pilot</h3>
+
+<p>Turn flying into a professional career.</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- PRICING -->
+
+<div class="section">
+
+<h2>Pricing</h2>
+
+<p>Flight training costs vary depending on pace and aircraft used. Contact us for current aircraft and instructor rates.</p>
+
+</div>
+
+<!-- TEAM -->
+
+<div class="section">
+
+<h2>Meet the Team</h2>
+
+<p>Our instructors are passionate about helping students succeed safely and confidently.</p>
+
+</div>
+
+<!-- START HERE -->
+
+<div class="section">
+
+<h2>Start Here</h2>
+
+<p>If you've never flown before, your first step is a Discovery Flight. From there we help you plan your training path toward becoming a pilot.</p>
+
+</div>
+
+<!-- VISIT -->
+
+<div class="section">
+
+<h2>Visit Us</h2>
+
+<p>Knoxville Tennessee</p>
+
+<p>Contact us to schedule a discovery flight or tour the school.</p>
+
+</div>
+
+<div class="footer">
+
+<p>© 2026 Knoxville Flight Training Academy</p>
+
+</div>
+
 </body>
 </html>
